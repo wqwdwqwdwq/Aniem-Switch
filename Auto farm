@@ -4,7 +4,59 @@ local P
 _G.Valorr = true
 	local BodyPosition = Instance.new("BodyVelocity")
 			
+spawn(function()
+	while wait() do 
+	
+		
+		local args = {
+			[1] = "M1",
+			[2] = "D",
+			[3] = workspace.Map.Ignore,
+			[4] = CFrame.new(-3763.848876953125, 1063.6275634765625, 2001.6756591796875) * CFrame.Angles(-2.7140309810638428, 0.31214413046836853, 3.002558469772339)
+		}
 
+		game:GetService("ReplicatedStorage").RemoteObjects.KeyInputs:FireServer(unpack(args))
+		
+
+		
+	
+			
+
+		local args = {
+			[1] = "A1",
+			[2] = "U",
+			[3] = workspace.Map.Ignore,
+			[4] = CFrame.new(-3765.2333984375, 1063.6275634765625, 1987.504150390625) * CFrame.Angles(-2.5957913398742676, 0.4074566960334778, 2.905409336090088)
+		}
+
+		game:GetService("ReplicatedStorage").RemoteObjects.KeyInputs:FireServer(unpack(args))
+
+	
+			
+	
+		local args = {
+			[1] = "A2",
+			[2] = "U",
+			[3] = workspace.Map.Ignore,
+			[4] = CFrame.new(-3754.216064453125, 1063.6275634765625, 1950.008544921875) * CFrame.Angles(-2.3392012119293213, 0.2835690677165985, 2.859835147857666)
+		}
+
+		game:GetService("ReplicatedStorage").RemoteObjects.KeyInputs:FireServer(unpack(args))
+		
+
+			local args = {
+				[1] = "A3",
+				[2] = "U",
+				[3] = workspace.Map.Ignore,
+				[4] = CFrame.new(-3760.317138671875, 1063.6275634765625, 1960.28515625) * CFrame.Angles(-2.508928060531616, 0.36239489912986755, 2.887288808822632)
+			}
+
+			game:GetService("ReplicatedStorage").RemoteObjects.KeyInputs:FireServer(unpack(args))
+	
+
+
+	end
+end)
 
 while _G.Valorr  do 
 	wait()
@@ -13,7 +65,7 @@ while _G.Valorr  do
 		while not _G.Valorr do 
 			wait()
 			Player.Character.HumanoidRootPart.CFrame =  CFrame.new(0,40,0)
-			if Player.Character:FindFirstChildWhichIsA("Humanoid").Health >= 30 then
+			if Player.Character:FindFirstChildWhichIsA("Humanoid").Health >= Player.Character:FindFirstChildWhichIsA("Humanoid").MaxHealth then
 				_G.Valorr = true
 			end
 		end
@@ -31,4 +83,3 @@ for _, Npcs in pairs(game.Workspace.Alive:GetChildren()) do
 end
 
 
-_G.Valor = false
