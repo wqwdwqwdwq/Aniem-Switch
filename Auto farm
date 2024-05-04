@@ -60,12 +60,12 @@ end)
 
 while _G.Valorr  do 
 	wait()
-	if Player.Character:FindFirstChildWhichIsA("Humanoid").Health <= 20 then
+	if Player.Character:FindFirstChildWhichIsA("Humanoid").Health <= Player.Character:FindFirstChildWhichIsA("Humanoid").MaxHealth/10 then
 		_G.Valorr = false
 		while not _G.Valorr do 
 			wait()
 			Player.Character.HumanoidRootPart.CFrame =  CFrame.new(0,40,0)
-			if Player.Character:FindFirstChildWhichIsA("Humanoid").Health >= Player.Character:FindFirstChildWhichIsA("Humanoid").MaxHealth then
+			if Player.Character:FindFirstChildWhichIsA("Humanoid").Health >= Player.Character:FindFirstChildWhichIsA("Humanoid").MaxHealth /8 then
 				_G.Valorr = true
 			end
 		end
@@ -73,13 +73,18 @@ while _G.Valorr  do
 for _, Npcs in pairs(game.Workspace.Alive:GetChildren()) do
 
 		
-
-		if Npcs ~= game.Players.LocalPlayer.Character and Npcs:IsA("Model") and Npcs.Name ~= "comandobr540" then
+		for _, Players in pairs(game.Players:GetPlayers()) do
 			
-			Player.Character.HumanoidRootPart.CFrame = Npcs.HumanoidRootPart.CFrame * CFrame.new(0,-2,0)
 
+		if Npcs ~= game.Players.LocalPlayer.Character and Npcs:IsA("Model") and Npcs.Name ~= Players.Name then
+			
+				Player.Character.HumanoidRootPart.CFrame = Npcs.HumanoidRootPart.CFrame * CFrame.new(0,-2,0)
+			else
+				repeat wait()
+					Player.Character.HumanoidRootPart.CFrame =  CFrame.new(0,40,0)
+					
+				until Npcs ~= game.Players.LocalPlayer.Character and Npcs:IsA("Model") and Npcs.Name ~= Players.Name 
+			end
 		end
 	end
 end
-
-
